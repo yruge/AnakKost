@@ -14,6 +14,7 @@ Route::post('login', [AuthenticatedSessionController::class, 'store']);
 Route::get('/dashboard', function () {
     return view('dashboards');
 })->middleware('auth')->name('dashboard');Route::get('/register-user', [UserRegistrationController::class, 'showForm'])
+
 Route::get('/register-user', [UserRegistrationController::class, 'showForm'])
     ->name('user.register');
 
