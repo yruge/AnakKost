@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AuthenticatedSessionController extends Controller
@@ -18,10 +18,11 @@ class AuthenticatedSessionController extends Controller
             'password' => ['required'],
         ]);
 
-        if (auth()->attempt($credentials)) {
-            $request->session()->regenerate();
+        $remember = $request->filled('remember');
 
-            return redirect()->intended('dashboard');
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/home');
         }
 
         return back()->withErrors([

@@ -20,6 +20,7 @@
             'name',
             'email',
             'password',
+            'email_verified_at'
         ];
 
         /**
