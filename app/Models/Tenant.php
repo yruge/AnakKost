@@ -20,8 +20,13 @@ class Tenant extends Model
 
     protected $fillable = [
         'name',
+        'id_number',
         'phone_number',
+        'contact_number',
+        'email',
         'move_in_date',
+        'move_out_date',
         'room_id',
+        'user_id',
     ];
 }

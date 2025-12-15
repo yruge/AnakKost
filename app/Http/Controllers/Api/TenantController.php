@@ -31,8 +31,12 @@ class TenantController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:50',
+            'id_number' => 'nullable|string|max:50',
             'phone_number' => 'required|string',
+            'contact_number' => 'nullable|string',
+            'email' => 'nullable|email|max:100',
             'move_in_date' => 'required|date',
+            'move_out_date' => 'nullable|date|after:move_in_date',
             'room_id' => 'required|integer|exists:rooms,id,status,available',            
         ]);  
 
@@ -81,7 +85,12 @@ class TenantController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:50',
+            'id_number' => 'nullable|string|max:50',
             'phone_number' => 'required|string',
+            'contact_number' => 'nullable|string',
+            'email' => 'nullable|email|max:100',
+            'move_in_date' => 'nullable|date',
+            'move_out_date' => 'nullable|date|after:move_in_date',
         ]);
 
         $tenant = Tenant::find($id);
@@ -93,10 +102,7 @@ class TenantController extends Controller
             ], 404);
         }
 
-        $tenant->update([
-            'name' => $validated['name'],
-            'phone_number' => $validated['phone_number'],
-        ]);
+        $tenant->update($validated);
 
         return response()->json([
             'message' => 'Successfully updated',

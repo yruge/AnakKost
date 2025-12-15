@@ -14,6 +14,13 @@ class TenantSeeder extends Seeder
 
     public function run(): void
     {
-       Tenant::factory(5)->create();
+        $tenants = Tenant::factory(5)->create();
+        
+        // Update room status to occupied for each tenant
+        foreach ($tenants as $tenant) {
+            if ($tenant->room_id) {
+                Room::where('id', $tenant->room_id)->update(['status' => 'occupied']);
+            }
+        }
     }
 }
