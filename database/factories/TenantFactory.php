@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 use App\Models\Room;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,10 +18,14 @@ class TenantFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::factory()->create([
+            'name' => $this->faker->name(),
+        ]);
 
         return [
+            'user_id' => $user->id,
             'room_id' => Room::inRandomOrder()->first()->id,
-            'name' => fake()->name(),
+            'name' => $user->name,
             'phone_number' => fake()->phoneNumber(),
             'ktp_photo' => fake()->imageUrl(640, 480, 'people'),
             'move_in_date' => fake()->dateTimeThisYear(),

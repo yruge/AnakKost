@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <link rel="stylesheet" href="{{ asset('css/login.css') }}"> --}}
-    <style>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{-- <link rel="stylesheet" href="{{ asset('css/login-register.css') }}"> --}}
+        <style>
         * {
             box-sizing: border-box;
             font-family: "Georgia", serif;
         }
 
         body {
-            margin: 0;
             min-height: 100vh;
             background: #ffffff;
             display: flex;
@@ -30,6 +29,7 @@
             width: 380px;
             border: 1px solid #bfbfbf;
             border-radius: 10px;
+            margin: 20px;
             padding: 40px 35px;
             background: #fff;
         }
@@ -75,53 +75,78 @@
             cursor: pointer;
         }
 
-        .register-link {
+        .login-link {
             margin-top: 15px;
             font-size: 14px;
         }
 
-        .register-link a:hover {
+        .login-link a:hover {
             opacity: 0.9;
         }
     </style>
-    <title>Login</title>
+    <title>Register User</title>
 </head>
-
 <body>
     <div class="container">
         <div class="card">
-            <h1 class="title">Login</h1>
-            <form method="POST" action="{{ route('login') }}">
-    
+
+            <h1 class="title">Register</h1>
+
+            <form action="{{ route('user.register.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-    
+
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-    
-                    @error('email')
-                    <span style="color: red;">{{ $message }}</span>
-                    @enderror
+                    <label>Name</label>
+                    <input type="text" name="name" required>
                 </div>
+
+                {{-- <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone_number" required>
+                </div>
+
                 <div class="input-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" required>
-                </div>
+                    <label>KTP Photo</label>
+                    <input type="file" name="ktp_photo"  required>
+                </div> --}}
+
+                {{-- <div class="input-group">
+                    <label>Move In Date</label>
+                    <input type="date" name="move_in_date" value="{{ 'move_in_date' }}" required>
+                </div> --}}
+
+                {{-- <div class="input-group">
+                    <label>Select Room</label>
+                    <select name="room_id" required>
+                        @foreach($rooms as $room)
+                        <option value="{{ $room->id }}">
+                            {{ $room->name }} - {{ number_format($room->price) }} IDR
+                        </option>
+                        @endforeach
+                    </select>
+                </div> --}}
+
                 <div class="input-group">
-                    <label>
-                        <input type="checkbox" name="remember">
-                        Remember me
-                    </label>
+                    <label>Email</label>
+                    <input type="email" name="email" required>
                 </div>
-    
-                <div>
-                    <button class="btn" type="submit">Login</button>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
                 </div>
-    
-                <div class="register-link">
-                    <p>Don't have an account? 
-                        <a href="{{ route('user.register') }}">
-                            Register
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="password_confirmation" required>
+                </div>
+
+                <button class="btn" type="submit">Register</button>
+
+                <div class="login-link">
+                    <p>Already have an account? 
+                        <a href="{{ route('login') }}">
+                            Login
                         </a> 
                     </p>
                 </div>
@@ -129,5 +154,4 @@
         </div>
     </div>
 </body>
-
 </html>

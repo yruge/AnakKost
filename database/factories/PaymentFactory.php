@@ -18,7 +18,7 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'tenant_id' => Tenant::factory(),
+            'tenant_id' => Tenant::inRandomOrder()->first()->id,
             'amount'=>fake()->randomElement([800000, 1000000, 1200000]),
             'payment_date'=>fake()->dateTimeThisMonth(),
             'for_period'=> 'September 2025',
