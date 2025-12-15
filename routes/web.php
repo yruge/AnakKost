@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TenantDashboardController;
 use App\Http\Controllers\TenantRegistrationController;
 use Illuminate\Support\Facades\Route;
