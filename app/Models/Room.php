@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
-    public function Tenant()
+    
+    public function tenant()
     {
         return $this->hasOne(Tenant::class);
     }

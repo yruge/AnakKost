@@ -15,13 +15,19 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
+        $rooms = Room::with('tenant')->get();
+        
         foreach ($rooms as $room) {
-            $room->status = Str::title($room->status);
-            $room->price_per_month = Str::of("Rp, ")->append($room->price_per_month);
+            // Dynamically set status based on tenant existence
+            if ($room->tenant) {
+                $room->status = 'occupied';
+            } else {
+                $room->status = 'available';
+            }
+            // Update the database to match
+            $room->save();
         }
-        return view('owner.room', compact('rooms'));
-
+        
         return response()->json([
             'message' => 'success',
             'data' => $rooms,
