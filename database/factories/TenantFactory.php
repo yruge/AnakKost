@@ -24,7 +24,7 @@ class TenantFactory extends Factory
 
         return [
             'user_id' => $user->id,
-            'room_id' => Room::inRandomOrder()->first()->id,
+            'room_id' => Room::where('status', 'available')->inRandomOrder()->first()?->id,
             'name' => $user->name,
             'phone_number' => fake()->phoneNumber(),
             'ktp_photo' => fake()->imageUrl(640, 480, 'people'),

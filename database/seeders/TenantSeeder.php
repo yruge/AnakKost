@@ -1,19 +1,28 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\Room;
 use App\Models\Tenant;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TenantSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-
     public function run(): void
     {
-       Tenant::factory(5)->create();
+        DB::transaction(function () {
+            $rooms = Room::where('status', 'available')->take(5)->get();
+
+            foreach ($rooms as $room) {
+                Tenant::factory()->create([
+                    'room_id' => $room->id,
+                ]);
+
+                $room->update([
+                    'status' => 'occupied',
+                ]);
+            }
+        });
     }
 }

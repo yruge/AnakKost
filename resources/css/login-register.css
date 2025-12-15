@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    font-family: "Georgia", serif;
+}
+
+.login-page, .register-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-card {
+    width: 380px;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px;
+    padding: 40px 35px;
+    background: #fff;
+}
+
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+}
+
+.btn {
+    display: block;
+    margin-top: 10px;
+    padding: 12px;
+    text-align: center;
+    background: #6f6ff2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a:hover {
+    opacity: 0.9;
+}

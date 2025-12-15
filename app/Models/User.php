@@ -10,6 +10,9 @@
     {
         /** @use HasFactory<\Database\Factories\UserFactory> */
         use HasFactory, Notifiable;
+        public function tenant(){
+            return $this->hasOne(Tenant::class);
+        }
 
         /**
          * The attributes that are mass assignable.
@@ -44,4 +47,5 @@
                 'password' => 'hashed',
             ];
         }
+
     }

@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('room_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id') ->constrained() ->onDelete('cascade') ->unique();
+            $table->foreignId('room_id') ->constrained() ->onDelete('cascade') ->unique();
             $table->string('name');
             $table->string('phone_number');
             $table->string('ktp_photo')->nullable();
             $table->date('move_in_date');
             $table->timestamps();
         });
+
     }
 
     /**

@@ -21,11 +21,6 @@ class RoomController extends Controller
             $room->price_per_month = Str::of("Rp, ")->append($room->price_per_month);
         }
         return view('owner.room', compact('rooms'));
-
-        return response()->json([
-            'message' => 'success',
-            'data' => $rooms,
-        ], 200);
     }
 
     /**
