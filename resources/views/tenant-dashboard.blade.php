@@ -14,7 +14,7 @@
     {{-- PAYMENT STATUS --}}
     <div class="card card-accent">
         <div class="card-header">
-            <span>Payment Status</span>
+            <span>Payment</span>
             <span class="price">
                 Rp {{ number_format($tenant->room->price_per_month) }}
             </span>
@@ -22,11 +22,7 @@
 
         <div class="card-body">
             <p class="label">Next payment</p>
-            <p class="value">{{ $nextPaymentDate }}</p>
-
-            <div class="progress">
-                <div class="progress-bar" style="width: {{ $progress }}%"></div>
-            </div>
+            <p class="value">{{ $nextPaymentDateFormatted }}</p>
 
             <a href="{{ route('payments.index') }}" class="btn-primary">
                 Pay Now
@@ -57,7 +53,7 @@
     <div class="card">
         <h3>Boarding House Rules</h3>
         <ul class="rules">
-            <li>1. Payment is due by the 5th of each month</li>
+            <li>1. Rent payment is due monthly based on the tenant’s move-in date</li>
             <li>2. No overnight guests allowed</li>
             <li>3. Keep the place clean</li>
             <li>4. Turn off the lights when leaving</li>

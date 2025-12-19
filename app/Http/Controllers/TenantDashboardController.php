@@ -8,7 +8,6 @@ class TenantDashboardController extends Controller
     public function index()
     {
         $user = auth()->user();
-
         $tenant = $user->tenant;
 
         if (!$tenant) {
@@ -24,19 +23,23 @@ class TenantDashboardController extends Controller
         $room = $tenant->room;
         $monthlyPrice = $room->price_per_month;
 
-        $moveInDate = Carbon::parse($tenant->move_in_date);
-        $nextPaymentDate = $moveInDate->copy()->addMonths(now()->diffInMonths($moveInDate) + 1);
+        $moveInDate = Carbon::parse($tenant->move_in_date)->startOfDay();
+        $today = Carbon::today();
 
-        $daysLeft = now()->diffInDays($nextPaymentDate, false);
-        $progress = max(0, min(100, 100 - ($daysLeft * 3)));
+        $periodStart = $moveInDate->copy();
+        while ($periodStart->copy()->addMonthNoOverflow()->lte($today)) {
+            $periodStart->addMonthNoOverflow();
+        }
+
+        $nextPaymentDate = $periodStart->copy()->addMonthNoOverflow();
+
+        $nextPaymentDateFormatted = $nextPaymentDate->translatedFormat('d F Y');
 
         return view('tenant-dashboard', compact(
             'tenant',
             'room',
             'monthlyPrice',
-            'nextPaymentDate',
-            'daysLeft',
-            'progress'
+            'nextPaymentDateFormatted'
         ));
     }
 
