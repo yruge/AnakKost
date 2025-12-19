@@ -26,8 +26,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/tenant', [TenantRegistrationController::class, 'store'])->middleware('auth')->name('tenant.store');
 
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
-
-    // Route::get('/booking/{room}', [BookingController::class, 'create'])->name('booking.create');
 });
 
 Route::get('/register-user', [UserRegistrationController::class, 'showForm'])

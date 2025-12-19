@@ -35,7 +35,7 @@
 
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary">
-            Simpan & Booking
+            Book
         </button>
     </div>
 </form>

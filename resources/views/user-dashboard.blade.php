@@ -4,9 +4,12 @@
 <div class="container-fluid mt-4">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2>Dashboard</h2>
             @auth
-                <p>Selamat datang, <strong>{{ auth()->user()->name }}</strong></p>
+                <div class="dashboard-header">
+                    <h1 class="welcome-text">
+                        Welcome, <strong>{{ auth()->user()->name }}</strong>
+                    </h1>
+                </div>
             @endauth
 
             @guest
