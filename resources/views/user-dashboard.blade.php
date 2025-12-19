@@ -13,34 +13,34 @@
             @endauth
 
             @guest
-                <p>Selamat datang! Silakan login untuk melakukan booking.</p>
+                <p>Welcome! Please log in to make a booking.</p>
             @endguest
             <div class="card mb-4">
                 <div class="card-body">
                     @if ($tenant && $tenant->room)
-                        <strong>Status:</strong> Sudah Booking Kamar
+                        <strong>Status:</strong> Room already booked
                         <br>
                         <a href="{{ route('tenant.dashboard') }}" class="btn btn-primary mt-2">
-                            Lihat Dashboard Kamar
+                            See Room Dashboard
                         </a>
                     @else
-                        <strong>Status:</strong> Belum Booking Kamar
+                        <strong>Status:</strong> Not yet booked a room
                     @endif
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">
-                    <h4>Daftar Kamar</h4>
+                    <h4>Room List</h4>
                 </div>
 
                 <div class="table-responsive">
                     <table class="table table-striped align-middle">
                         <thead>
                             <tr>
-                                <th>Kamar</th>
-                                <th>Harga / Bulan</th>
+                                <th>Room</th>
+                                <th>Price / Month</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,7 +74,7 @@
 
                                              @else
                                                  <button class="btn btn-sm btn-secondary" disabled>
-                                                    Sudah Punya Kamar
+                                                    Already Have a Room
                                                 </button>
                                             @endif
                                         @else

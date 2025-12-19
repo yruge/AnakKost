@@ -5,23 +5,23 @@
 
     {{-- HEADER --}}
     <div class="dashboard-header">
-        <h1>Halo, {{ auth()->user()->name }}</h1>
+        <h1>Hello, {{ auth()->user()->name }}</h1>
         <p class="subtitle">
-            Kamar {{ $tenant->room->room_number }}
+            Room {{ $tenant->room->room_number }}
         </p>
     </div>
 
     {{-- PAYMENT STATUS --}}
     <div class="card card-accent">
         <div class="card-header">
-            <span>Status Pembayaran</span>
+            <span>Payment Status</span>
             <span class="price">
                 Rp {{ number_format($tenant->room->price_per_month) }}
             </span>
         </div>
 
         <div class="card-body">
-            <p class="label">Pembayaran berikutnya</p>
+            <p class="label">Next payment</p>
             <p class="value">{{ $nextPaymentDate }}</p>
 
             <div class="progress">
@@ -29,23 +29,23 @@
             </div>
 
             <a href="{{ route('payments.index') }}" class="btn-primary">
-                Bayar Sekarang
+                Pay Now
             </a>
         </div>
     </div>
 
     {{-- ROOM INFO --}}
     <div class="card">
-        <h3>Informasi Kamar</h3>
+        <h3>Room Information</h3>
 
         <div class="info-grid">
             <div class="info-item">
-                <p class="label">Nomor Kamar</p>
+                <p class="label">Room Number</p>
                 <p class="value">{{ $tenant->room->room_number }}</p>
             </div>
 
             <div class="info-item">
-                <p class="label">Tanggal Masuk</p>
+                <p class="label">Date of Entry</p>
                 <p class="value">
                     {{ \Carbon\Carbon::parse($tenant->move_in_date)->translatedFormat('d F Y') }}
                 </p>
@@ -55,12 +55,12 @@
 
     {{-- RULES --}}
     <div class="card">
-        <h3>Peraturan Kost</h3>
+        <h3>Boarding House Rules</h3>
         <ul class="rules">
-            <li>1. Pembayaran maksimal tanggal 5</li>
-            <li>2. Dilarang membawa tamu menginap</li>
-            <li>3. Jaga kebersihan bersama</li>
-            <li>4. Matikan listrik saat keluar</li>
+            <li>1. Payment is due by the 5th of each month</li>
+            <li>2. No overnight guests allowed</li>
+            <li>3. Keep the place clean</li>
+            <li>4. Turn off the lights when leaving</li>
         </ul>
     </div>
 
@@ -69,7 +69,7 @@
         <h3>Kontak Darurat</h3>
 
         <div class="contact-item">
-            <span>Pengelola Kost</span>
+            <span>Emergency Contact</span>
             <a href="tel:081234567890">0812-3456-7890</a>
         </div>
 
