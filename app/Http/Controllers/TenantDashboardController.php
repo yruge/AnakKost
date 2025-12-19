@@ -31,9 +31,9 @@ class TenantDashboardController extends Controller
             $periodStart->addMonthNoOverflow();
         }
 
-        $nextPaymentDate = $periodStart->copy()->addMonthNoOverflow();
+        $nextPaymentDate = $periodStart->copy()->addMonthNoOverflow()->setTime(23, 59);
 
-        $nextPaymentDateFormatted = $nextPaymentDate->translatedFormat('d F Y');
+        $nextPaymentDateFormatted = $nextPaymentDate->translatedFormat('d F Y H:i');
 
         return view('tenant-dashboard', compact(
             'tenant',
