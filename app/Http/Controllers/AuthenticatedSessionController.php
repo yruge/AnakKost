@@ -22,6 +22,14 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
+
+            $user = Auth::user();
+
+            // Redirect seeded admin user to owner dashboard
+            if ($user && $user->email === 'admin@anak-kost.com') {
+                return redirect()->intended('/owner/dashboard');
+            }
+
             return redirect()->intended('/user/dashboard');
         }
 
