@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 }
 
-/* Left Sidebar Navigation */
 .tenant-sidebar {
     width: 260px;
     background: #ffffff;
@@ -86,7 +85,6 @@ body {
     opacity: 1;
 }
 
-/* User Section at Bottom */
 .tenant-sidebar-footer {
     padding: 1.5rem;
     border-top: 1px solid #e9ecef;
@@ -138,7 +136,6 @@ body {
     border-color: #dc3545;
 }
 
-/* Main Content Area */
 .tenant-main-content {
     margin-left: 260px;
     flex: 1;
@@ -165,7 +162,6 @@ body {
     font-weight: 400;
 }
 
-/* Cards */
 .tenant-card {
     background: #ffffff;
     border: 1px solid #e9ecef;
@@ -203,7 +199,6 @@ body {
     color: #667eea;
 }
 
-/* Info Items */
 .tenant-info-label {
     font-size: 0.8125rem;
     color: #6c757d;
@@ -219,7 +214,6 @@ body {
     color: #212529;
 }
 
-/* Button */
 .tenant-btn-primary {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -243,7 +237,6 @@ body {
     box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
 }
 
-/* Grid Layout */
 .tenant-content-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,7 +261,6 @@ body {
     background: #f1f3f5;
 }
 
-/* Rules List */
 .tenant-rules {
     list-style: none;
     padding: 0;
@@ -286,7 +278,6 @@ body {
     border-bottom: none;
 }
 
-/* Contact Items */
 .tenant-contact-item {
     display: flex;
     justify-content: space-between;
@@ -323,7 +314,6 @@ body {
     color: #5568d3;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .tenant-content-grid {
         grid-template-columns: 1fr;

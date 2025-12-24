@@ -15,7 +15,6 @@ body {
     min-height: 100vh;
 }
 
-/* Left Sidebar Navigation */
 .sidebar {
     width: 260px;
     background: #ffffff;
@@ -86,7 +85,6 @@ body {
     opacity: 1;
 }
 
-/* User Section at Bottom */
 .sidebar-footer {
     padding: 1.5rem;
     border-top: 1px solid #e9ecef;
@@ -151,7 +149,6 @@ body {
     border-color: #dc3545;
 }
 
-/* Main Content Area */
 .main-content {
     margin-left: 260px;
     flex: 1;
@@ -178,7 +175,6 @@ body {
     font-weight: 400;
 }
 
-/* KPI Cards */
 .kpi-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -223,7 +219,6 @@ body {
     color: #3b82f6;
 }
 
-/* Content Grid */
 .content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -245,7 +240,6 @@ body {
     letter-spacing: -0.3px;
 }
 
-/* Table Styles */
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -297,7 +291,6 @@ body {
     font-size: 0.9375rem;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .content-grid {
         grid-template-columns: 1fr;

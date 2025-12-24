@@ -52,7 +52,6 @@
     </button>
 
     <script>
-        // Don't play about animations when user navigates with Home or ArrowUp keys
         let suppressAboutAnimation = false;
         let scrollingToHome = false;
         let animationHasPlayed = false;
@@ -61,7 +60,6 @@
             if (e.key === 'Home' || e.key === 'ArrowUp') {
                 suppressAboutAnimation = true;
                 scrollingToHome = true;
-                // clear flag shortly after to allow normal animations again
                 setTimeout(function() { 
                     suppressAboutAnimation = false; 
                     scrollingToHome = false;
@@ -110,14 +108,12 @@
             suppressAboutAnimation = true;
             scrollingToHome = true;
             smoothScroll('home');
-            // Reset the flag after scrolling completes
             setTimeout(function() { 
                 suppressAboutAnimation = false;
                 scrollingToHome = false;
             }, 3000);
         }
 
-        // Show scroll-to-top button and trigger about animations when scrolling
         let lastScrollTop = 0;
         window.addEventListener('scroll', function() {
             const scrollTop = document.getElementById('scrollTop');
@@ -125,9 +121,7 @@
             const aboutRect = aboutSection.getBoundingClientRect();
             const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            // If we're scrolling to home, don't do anything with about section
             if (scrollingToHome || suppressAboutAnimation) {
-                // Update scroll top and button visibility
                 if (scrollTop && aboutRect.top < window.innerHeight / 2) {
                     scrollTop.classList.add('visible');
                 } else if (scrollTop) {
@@ -137,20 +131,16 @@
                 return;
             }
             
-            // Trigger animations only once when about section is 30% visible
-            // After first time, keep visible class but don't replay animations
             if (aboutRect.top < window.innerHeight * 0.7) {
                 if (!animationHasPlayed) {
                     aboutSection.classList.add('visible');
                     animationHasPlayed = true;
                 } else if (!aboutSection.classList.contains('visible')) {
-                    // Add visible class without animation by adding it immediately
                     aboutSection.classList.add('visible');
                     aboutSection.style.animation = 'none';
                 }
             }
             
-            // Show scroll-to-top button
             if (scrollTop && aboutRect.top < window.innerHeight / 2) {
                 scrollTop.classList.add('visible');
             } else if (scrollTop) {

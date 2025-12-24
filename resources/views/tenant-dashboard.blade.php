@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="tenant-layout">
-        {{-- Left Sidebar Navigation --}}
         <aside class="tenant-sidebar">
             <div class="tenant-sidebar-header">
                 <h1>AnakKost</h1>
@@ -47,9 +46,7 @@
             </div>
         </aside>
 
-        {{-- Main Content Area --}}
         <main class="tenant-main-content">
-            {{-- Flash Messages --}}
             @if(session('success'))
                 <div style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid #c3e6cb;">
                     {{ session('success') }}
@@ -68,13 +65,11 @@
                 </div>
             @endif
 
-            {{-- Page Header --}}
             <div class="tenant-page-header">
                 <h2 class="tenant-page-title">Hello, {{ auth()->user()->name }}</h2>
                 <p class="tenant-page-subtitle">Room {{ $tenant->room->room_number }}</p>
             </div>
 
-            {{-- Payment Status Card --}}
             <div class="tenant-card tenant-card-accent">
                 <div class="tenant-card-header">
                     <span class="tenant-card-title">Payment</span>
@@ -91,9 +86,7 @@
                 </div>
             </div>
 
-            {{-- Content Grid --}}
             <div class="tenant-content-grid">
-                {{-- Room Information --}}
                 <div class="tenant-card">
                     <h3 class="tenant-card-title">Room Information</h3>
 
@@ -112,7 +105,6 @@
                     </div>
                 </div>
 
-                {{-- Contact Information --}}
                 <div class="tenant-card">
                     <h3 class="tenant-card-title">Emergency Contact</h3>
 
@@ -128,7 +120,6 @@
                 </div>
             </div>
 
-            {{-- Boarding House Rules --}}
             <div class="tenant-card">
                 <h3 class="tenant-card-title">Boarding House Rules</h3>
                 <ul class="tenant-rules">

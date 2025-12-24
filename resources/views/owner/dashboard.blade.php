@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="admin-layout">
-        {{-- Left Sidebar Navigation --}}
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h1>AnakKost Admin</h1>
@@ -63,15 +62,12 @@
             </div>
         </aside>
 
-        {{-- Main Content Area --}}
         <main class="main-content">
-            {{-- Page Header --}}
             <div class="page-header">
                 <h2 class="page-title">Dashboard</h2>
                 <p class="page-subtitle">Welcome back, {{ auth()->user()->name }}</p>
             </div>
 
-            {{-- KPI Cards --}}
             <div class="kpi-grid">
                 <div class="kpi-card">
                     <p class="kpi-label">Total Rooms</p>
@@ -99,9 +95,7 @@
                 </div>
             </div>
 
-            {{-- Two Column Content Grid --}}
             <div class="content-grid">
-                {{-- Recent Tenants --}}
                 <div class="content-card">
                     <h3 class="card-title">Recent Tenants</h3>
                     
@@ -131,7 +125,6 @@
                     @endif
                 </div>
 
-                {{-- Recent Payments --}}
                 <div class="content-card">
                     <h3 class="card-title">Recent Payments</h3>
                     
