@@ -1,0 +1,19 @@
+# Use the "Swiss Army Knife" image for Laravel
+FROM richarvey/nginx-php-fpm:3.1.6
+
+# Copy all your code into the container
+COPY . .
+
+# Image Configuration
+ENV WEBROOT /var/www/html/public
+ENV PHP_ERRORS_STDERR 1
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
+
+# ⚠️ CRITICAL: Allow Composer to run so it installs your libraries
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Start the server
+CMD ["/start.sh"]
+
