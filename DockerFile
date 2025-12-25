@@ -16,4 +16,3 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 # Start the server
 CMD ["/start.sh"]
-
